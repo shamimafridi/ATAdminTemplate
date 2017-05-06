@@ -1,0 +1,25 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="active" *ngFor="let header of gridOptions.columns">
+          <div *ngIf="header.visible!=false">{{header.name}}
+            <i (click)="sortingEvent(header)" [ngClass]="getHeaderClass(header)"></i>
+          </div>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of gridOptions.dataSource">
+        <td *ngFor="let header of gridOptions.columns">
+          <div *ngIf="header.visible!=false"> {{item[header.name]}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--<div class="at-grid-pagging">
+  <at-grid-pagging></at-grid-pagging>
+</div>-->
