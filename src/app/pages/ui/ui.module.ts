@@ -1,3 +1,4 @@
+import { UserService } from './components/atgrid-example/UserService';
 import { NgModule }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -63,7 +64,7 @@ import { AtModule } from './components/ATGrid/at-grid/at-module';
     DefaultModal
   ],
   providers: [
-    IconsService
+    IconsService,UserService
   ]
 })
 export class UiModule {
