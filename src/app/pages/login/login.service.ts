@@ -19,7 +19,6 @@ export class LoginService {
 
     }
     public loginUser(body: Object): Observable<UserTokenResponse> {
-        debugger;
         const bodyString = JSON.stringify(body); // Stringify payload
         const headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
         const options = new RequestOptions({ headers: headers }); // Create a request option
@@ -31,7 +30,6 @@ export class LoginService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
 
     }
-
 
 
 }

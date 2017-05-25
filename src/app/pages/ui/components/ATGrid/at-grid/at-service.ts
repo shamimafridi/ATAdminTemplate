@@ -6,5 +6,6 @@ interface IAtGrid {
 export class AtGrid implements IAtGrid {
     bindData(): void {
         console.log('bind calling')
+    
     }
 }

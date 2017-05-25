@@ -140,6 +140,14 @@ export const PAGES_MENU = [
               }
             }
           },
+          {
+            path: 'atgrid',
+            data: {
+              menu: {
+                title: 'ATGrid',
+              }
+            }
+          },
         ]
       },
       {

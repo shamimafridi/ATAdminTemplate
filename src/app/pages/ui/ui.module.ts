@@ -24,6 +24,9 @@ import { DropdownButtons } from './components/buttons/components/dropdownButtons
 import { GroupButtons } from './components/buttons/components/groupButtons';
 import { IconsService } from './components/icons/icons.service';
 import { DefaultModal } from './components/modals/default-modal/default-modal.component';
+import { ATGridExampleComponent } from './components/atgrid-example/atgrid-example.component';
+import { AtModule } from './components/ATGrid/at-grid/at-module';
+//import { ATgrids } from "./components/ATGrid/at-grid/at-service";
 
 
 @NgModule({
@@ -31,6 +34,7 @@ import { DefaultModal } from './components/modals/default-modal/default-modal.co
     CommonModule,
     FormsModule,
     NgaModule,
+    AtModule,
     NgbDropdownModule,
     NgbModalModule,
     SlimLoadingBarModule.forRoot(),
@@ -52,7 +56,8 @@ import { DefaultModal } from './components/modals/default-modal/default-modal.co
     LargeButtons,
     DropdownButtons,
     GroupButtons,
-    DefaultModal
+    DefaultModal,
+    ATGridExampleComponent
   ],
   entryComponents: [
     DefaultModal

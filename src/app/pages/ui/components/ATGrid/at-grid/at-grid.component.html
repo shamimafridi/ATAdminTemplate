@@ -1,7 +1,8 @@
+
 <div class="table-responsive">
-  <table class="table table-striped table-hover">
+  <table class="table table-hover">
     <thead>
-      <tr>
+      <tr class="black-muted-bg">
         <th class="active" *ngFor="let header of gridOptions.columns">
           <div *ngIf="header.visible!=false">{{header.name}}
             <i (click)="sortingEvent(header)" [ngClass]="getHeaderClass(header)"></i>
@@ -11,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of gridOptions.dataSource">
+      <tr class="no-top-border" *ngFor="let item of gridOptions.dataSource">
         <td *ngFor="let header of gridOptions.columns">
           <div *ngIf="header.visible!=false"> {{item[header.name]}}
           </div>

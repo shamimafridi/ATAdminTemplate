@@ -1,5 +1,4 @@
 export class AtGridOptions {
-
     columns: AtGridColumn[];
     dataSource: any[];
 }

@@ -39,6 +39,14 @@
   }
 }
 
+input.ng-invalid.ng-touched {
+  border-left: 5px solid red
+}
+
+input.ng-valid.ng-touched {
+  border-left: 5px solid forestgreen
+}
+
 .form-control {
   color: $content-text;
   @include placeholderStyle($content-text, 0.7);
@@ -80,7 +88,6 @@ textarea.form-control {
       margin-right: 12px;
     }
   }
-
   button[type="submit"] {
     margin-left: 12px;
   }
@@ -157,11 +164,9 @@ textarea.form-control {
   .bootstrap-switch-handle-off {
     border-radius: 0;
   }
-
   .bootstrap-switch-label {
     background: transparent;
   }
-
   &.bootstrap-switch-animate .bootstrap-switch-container {
     transition: margin-left .2s;
   }
@@ -180,11 +185,10 @@ textarea.form-control {
 .input-group {
   width: 100%;
   margin-bottom: 15px;
-  & > span {
+  &>span {
     border-radius: 0;
   }
 }
-
 
 .nowrap {
   white-space: nowrap;
@@ -200,13 +204,13 @@ label.custom-radio {
   @padding-right: 0;
   padding-left: 0;
   margin-bottom: 0;
-  & > input {
+  &>input {
     height: 0;
     z-index: -100 !important;
     opacity: 0;
     position: absolute;
     &:checked {
-      & + span {
+      &+span {
         &:before {
           content: "\f00c";
           font-weight: $font-light;
@@ -214,7 +218,7 @@ label.custom-radio {
       }
     }
     &:disabled {
-      & + span {
+      &+span {
         color: $disabled;
         cursor: not-allowed;
         &:before {
@@ -224,7 +228,7 @@ label.custom-radio {
       }
     }
   }
-  & > span {
+  &>span {
     position: relative;
     display: inline-block;
     margin: 0;
@@ -260,16 +264,16 @@ label.custom-radio {
       }
     }
   }
-  & > input {
+  &>input {
     &:checked {
-      & + span {
+      &+span {
         &:before {
           content: "\f111";
         }
       }
     }
   }
-  & > span {
+  &>span {
     &:before {
       border-radius: 16px;
       font-size: 9px;
@@ -278,7 +282,7 @@ label.custom-radio {
 }
 
 @mixin customInput($color) {
-  & > span {
+  &>span {
     &:before {
       color: $color;
     }
@@ -307,14 +311,14 @@ label.custom-input-danger {
 }
 
 .form-horizontal {
-  .radio, .radio-inline {
+  .radio,
+  .radio-inline {
     padding-top: 0;
   }
 }
 
 .input-demo {
   line-height: 25px;
-
   ba-multi-checkbox {
     width: 100%;
   }
@@ -333,7 +337,7 @@ label.custom-input-danger {
   }
   label.custom-checkbox {
     color: $color;
-    & > span {
+    &>span {
       &:before {
         color: $color;
       }
@@ -374,7 +378,7 @@ label.custom-input-danger {
   .form-control {
     padding-right: 42.5px;
   }
-  label ~ .form-control-feedback {
+  label~.form-control-feedback {
     top: 19px;
     font-size: 18px;
   }
@@ -388,7 +392,9 @@ label.custom-input-danger {
   }
 }
 
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
   background-color: $input-background;
   color: $disabled;
   border-color: $disabled-bg;
@@ -413,6 +419,10 @@ label.custom-input-danger {
   .has-error &.basic-block {
     display: block;
   }
+}
+
+.errors {
+  color: red;
 }
 
 @mixin groupAddon($color) {
@@ -464,12 +474,12 @@ label.custom-input-danger {
     }
   }
   &.open {
-    > .btn.btn-default.dropdown-toggle {
+    >.btn.btn-default.dropdown-toggle {
       background: $default;
       box-shadow: none;
       border-color: $border;
     }
-    > .btn {
+    >.btn {
       border-radius: 5px 5px 0 0;
     }
     .dropdown-menu.open {
@@ -478,7 +488,7 @@ label.custom-input-danger {
       border-radius: 0 0 5px 5px;
     }
   }
-  &.with-search.open .btn-default + .dropdown-menu {
+  &.with-search.open .btn-default+.dropdown-menu {
     .bs-searchbox .form-control {
       background-color: $default;
       border: 1px solid $input-border;
@@ -565,25 +575,24 @@ label.custom-input-danger {
   border: none;
 }
 
-.input-group > span.addon-left {
+.input-group>span.addon-left {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.input-group > span.addon-right {
+.input-group>span.addon-right {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
 .input-group-btn {
-
   &:not(:first-child) {
-    > .btn, > .btn-group {
+    >.btn,
+    >.btn-group {
       margin-left: 0;
     }
   }
-
-  > .btn {
+  >.btn {
     line-height: 1.56;
   }
 }
@@ -620,13 +629,13 @@ label.custom-checkbox {
   padding-right: 0;
   padding-left: 0;
   margin-bottom: 0;
-  & > input {
+  &>input {
     height: 0;
     z-index: -100 !important;
     opacity: 0;
     position: absolute;
     &:checked {
-      & + span {
+      &+span {
         &:before {
           content: "\f00c";
           font-weight: $font-light;
@@ -634,7 +643,7 @@ label.custom-checkbox {
       }
     }
     &:disabled {
-      & + span {
+      &+span {
         color: $disabled;
         cursor: not-allowed;
         &:before {
@@ -644,7 +653,7 @@ label.custom-checkbox {
       }
     }
   }
-  & > span {
+  &>span {
     position: relative;
     display: inline-block;
     margin: 0;
