@@ -1,3 +1,4 @@
+import  * as  pag from './../at-grid-pagination/at-grid-pagination.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AtGridComponent }   from './at-grid.component';
@@ -6,7 +7,7 @@ import { AtGridComponent }   from './at-grid.component';
 @NgModule({
     imports: [CommonModule],
     exports: [AtGridComponent],
-    declarations: [AtGridComponent],// pagging component should not exposed to app module
+    declarations: [AtGridComponent,pag.AtGridPaginationComponent],// pagging component should not exposed to app module
     providers: [],
 })
 export class AtModule { }

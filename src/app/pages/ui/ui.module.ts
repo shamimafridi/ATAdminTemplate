@@ -26,7 +26,6 @@ import { IconsService } from './components/icons/icons.service';
 import { DefaultModal } from './components/modals/default-modal/default-modal.component';
 import { ATGridExampleComponent } from './components/atgrid-example/atgrid-example.component';
 import { AtModule } from './components/ATGrid/at-grid/at-module';
-//import { ATgrids } from "./components/ATGrid/at-grid/at-service";
 
 
 @NgModule({
@@ -57,7 +56,8 @@ import { AtModule } from './components/ATGrid/at-grid/at-module';
     DropdownButtons,
     GroupButtons,
     DefaultModal,
-    ATGridExampleComponent
+    ATGridExampleComponent,
+    
   ],
   entryComponents: [
     DefaultModal
