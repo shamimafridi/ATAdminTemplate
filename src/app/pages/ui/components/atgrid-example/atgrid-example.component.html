@@ -1,4 +1,4 @@
 <p>
-<at-grid (onSortingColumnClick)="columnSortedClicked($event)" [gridOptions]= atGridOptions > </at-grid>
+<at-grid (onSortingColumnClick)="columnSortedClicked($event)" (onPageChanged)="onPageChange($event)"  [gridOptions]= atGridOptions > </at-grid>
 <!--<at-login></at-login>-->
 </p>

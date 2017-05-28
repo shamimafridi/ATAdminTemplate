@@ -7,68 +7,45 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-atgrid-example',
   templateUrl: './atgrid-example.component.html',
   styleUrls: ['./atgrid-example.component.scss'],
-  providers:[AtGridOptions]
+  providers: [AtGridOptions]
 })
 
 export class ATGridExampleComponent {
   atGridOptions: AtGridOptions;
   atGridColumns: AtGridColumn[];
-  constructor(private userService:UserService) {
+  constructor(private userService: UserService) {
+
+    this.atGridOptions = new AtGridOptions();
+    this.atGridOptions.pageCount = 1;
+    this.atGridOptions.pageLimit = 4;
+    this.atGridOptions.pageOffset = 0;
     this.atGridColumns = [
-      new AtGridColumn('name',null,true,"Name"),
-      new AtGridColumn('email',null,true,"Email"),
+      new AtGridColumn('name', null, true, "Name"),
+      new AtGridColumn('email', null, true, "Email"),
       //new AtGridColumn('Cother'),
       //new AtGridColumn('Qualification')
     ];
-    this.atGridOptions = new AtGridOptions();
-    this.loginUser();
-    // this.atGridOptions.dataSource = [{
-    //   Name: 'Mohammad Shamim Afridi',
-    //   Age: 29,
-    //   Qualification: 'Master'
-    // }, {
-    //     Name: 'Eman',
-    //     Age: 12,
-    //     Class: '6th'
-    //   }, {
-    //     Name: 'Eman',
-    //     Age: 12,
-    //     Class: '6th'
-    //   }, {
-    //     Name: 'Eman',
-    //     Age: 12,
-    //     Class: '6th'
-    //   }, {
-    //     Name: 'Shakira',
-    //     Age: 12,
-    //     Class: '6th'
-    //   }, {
-    //     Name: 'Abdul Rehman',
-    //     Age: 12,
-    //     Class: '6th'
-    //   }, {
-    //     Name: 'Zunaira',
-    //     Age: 12,
-    //     Class: '7th'
-    //   }, {
-    //     Name: 'Eman',
-    //     Age: 12,
-    //     Class: '6th'
-    //   }];
+    this.getUserList(0,this.atGridOptions.pageLimit);
+
     this.atGridOptions.columns = this.atGridColumns;
 
-  };
-   public loginUser(): void {
-      this.userService.getUserList()
-        .subscribe((data) => {
-          console.log(data)
-          if (data) {
-            this.atGridOptions.dataSource=data.page_count.docs;
-            alert('login succeed');
+  }
+  onPageChange(pageNo) {
+    this.getUserList( pageNo,this.atGridOptions.pageLimit);
+  }
+  public getUserList(pageNo: number, limit: number): void {
+    this.userService.getUserList(limit, pageNo)
+      .subscribe((data) => {
+        console.log(data)
+        if (data) {
+          this.atGridOptions.dataSource = data.page_count.docs;
+          this.atGridOptions.pageCount = data.page_count.total;
+         // this.atGridOptions.pageCount = 10;
+          //alert('suc');
 
-          } else {
-          }
-        });
+        } else {
+        }
+      });
 
   }
   columnSortedClicked(arg) {

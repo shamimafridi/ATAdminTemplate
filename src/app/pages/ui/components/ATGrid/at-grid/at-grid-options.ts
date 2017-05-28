@@ -1,6 +1,11 @@
 export class AtGridOptions {
     columns: AtGridColumn[];
     dataSource: any[];
+    pageCount: number;
+    pageLimit: number;
+    pageOffset: number;
+    pageNumber:number;
+
 }
 export class AtGridColumn {
     lastEffectedOrder: AtGridSortingOrder = AtGridSortingOrder.ascending;

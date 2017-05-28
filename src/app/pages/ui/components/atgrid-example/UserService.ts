@@ -17,12 +17,12 @@ export class UserService {
     public constructor(private http: Http) {
 
     }
-    public getUserList(): Observable<any> {
+    public getUserList(limit: number, pageNo: number): Observable<any> {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         headers.append('x-access-token', localStorage.getItem('token'));
         // ... Set content type to JSON
         const options = new RequestOptions({ headers: headers }); // Create a request option
-        const url = `${Config.ServiceUrl}/users?limit=10&page-1`;
+        const url = `${Config.ServiceUrl}/users?limit=${limit}&page=${pageNo}`;
         return this.http.get(url, options)
             .map(response => response.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
