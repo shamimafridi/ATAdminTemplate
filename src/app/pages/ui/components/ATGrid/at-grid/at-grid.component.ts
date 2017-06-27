@@ -35,7 +35,7 @@ export class AtGridComponent implements OnInit {
     }
   }
   onPageChange(page) {
-    this.gridOptions.pageNumber = page;
+    this.gridOptions.pageOffset = page;
     this.onPageChanged.emit(page)
 
   }

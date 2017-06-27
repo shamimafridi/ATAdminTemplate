@@ -17,7 +17,7 @@ export class ATGridExampleComponent {
 
     this.atGridOptions = new AtGridOptions();
     this.atGridOptions.pageCount = 1;
-    this.atGridOptions.pageLimit = 4;
+    this.atGridOptions.pageLimit = 5;
     this.atGridOptions.pageOffset = 0;
     this.atGridColumns = [
       new AtGridColumn('name', null, true, "Name"),
@@ -40,10 +40,12 @@ export class ATGridExampleComponent {
         if (data) {
           this.atGridOptions.dataSource = data.page_count.docs;
           this.atGridOptions.pageCount = data.page_count.total;
+          this.atGridOptions.pageOffset = data.page_count.offset;
          // this.atGridOptions.pageCount = 10;
           //alert('suc');
 
         } else {
+          
         }
       });
 

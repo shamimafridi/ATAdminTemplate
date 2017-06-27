@@ -10,7 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AtGridPaginationComponent implements OnInit {
   @Input() offset: number = 0;
-  @Input() limit: number = 10;
+  @Input() limit: number = 4;
   @Input() size: number = 1;
   @Input() range: number = 5;
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
@@ -28,17 +28,17 @@ export class AtGridPaginationComponent implements OnInit {
     return page > 0 && page <= totalPages;
   }
 
- selectPage(page: number, event) {
-  this.cancelEvent(event);
-  if (this.isValidPageNumber(page, this.totalPages)) {
-   // this.pageChange.emit((page - 1) * this.limit);
-    this.pageChange.emit(page);
+  selectPage(page: number, event) {
+    this.cancelEvent(event);
+    if (this.isValidPageNumber(page, this.totalPages)) {
+      this.pageChange.emit((page - 1) * this.limit);
+      // this.pageChange.emit(page);
+    }
   }
-}
-  
-cancelEvent(event) {
-  event.preventDefault();
-}
+
+  cancelEvent(event) {
+    event.preventDefault();
+  }
   getPages(offset: number, limit: number, size: number) {
     this.currentPage = this.getCurrentPage(offset, limit);
     this.totalPages = this.getTotalPages(limit, size);
@@ -50,7 +50,6 @@ cancelEvent(event) {
   getCurrentPage(offset: number, limit: number): number {
     return Math.floor(offset / limit) + 1;
   }
-
   getTotalPages(limit: number, size: number): number {
     return Math.ceil(Math.max(size, 1) / Math.max(limit, 1));
   }
@@ -59,5 +58,5 @@ cancelEvent(event) {
     this.getPages(this.offset, this.limit, this.size);
 
   }
-  
+
 }

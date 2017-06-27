@@ -22,7 +22,7 @@ export class UserService {
         headers.append('x-access-token', localStorage.getItem('token'));
         // ... Set content type to JSON
         const options = new RequestOptions({ headers: headers }); // Create a request option
-        const url = `${Config.ServiceUrl}/users?limit=${limit}&page=${pageNo}`;
+        const url = `${Config.ServiceUrl}/users?limit=${limit}&offset=${pageNo}`;
         return this.http.get(url, options)
             .map(response => response.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
