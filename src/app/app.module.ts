@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -40,6 +41,7 @@ export type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     RouterModule,
     FormsModule,

@@ -4,13 +4,12 @@ export class AtGridOptions {
     pageCount: number;
     pageLimit: number;
     pageOffset: number;
-    pageNumber:number;
 
 }
 export class AtGridColumn {
     lastEffectedOrder: AtGridSortingOrder = AtGridSortingOrder.ascending;
     sortingOrder: AtGridSortingOrder = AtGridSortingOrder.none;
-    constructor(private name: string, private type?: string, private visible?: boolean,
+    constructor(private name: string, private type?: string,private  visible?: boolean,
         private displayText?: string, private format?: string) {
     };
 }

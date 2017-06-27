@@ -1,19 +1,26 @@
 import { AtGridPaginationComponent } from './../at-grid-pagination/at-grid-pagination.component';
 import { Component, OnInit, Output, Input, EventEmitter, ViewChild } from '@angular/core';
 import { AtGridOptions, AtGridSortingOrder, AtGridColumn } from './at-grid-options';
-// import { AtGridPaggingComponent } from '../at-grid-pagging/at-grid-pagging.component';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'at-grid',
   templateUrl: './at-grid.component.html',
   styleUrls: ['./at-grid.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: '0' }),
+        animate('.10s ease-out', style({ opacity: '1' })),
+      ]),
+    ]),
+  ],
 })
 export class AtGridComponent implements OnInit {
-  //@ViewChild(AtGridPaginationComponent) pagination: AtGridPaginationComponent;
   @Output() onSortingColumnClick: EventEmitter<AtGridColumn> = new EventEmitter<AtGridColumn>();
   @Output() onPageChanged: EventEmitter<number> = new EventEmitter<number>();
   @Input() gridOptions: AtGridOptions;
-  
+
   //count:100;
   headerClass: string = 'sortable fa fa-fw fa-sort';
   constructor() {
@@ -40,10 +47,10 @@ export class AtGridComponent implements OnInit {
 
   }
   ngOnChanges(changes: { [propName: string]: AtGridOptions }) {
-     
-     // this.pagination.getPages(0,10,100);
+
+    // this.pagination.getPages(0,10,100);
     if (changes['dataSource']) {
-     // this.pagination.selectPage(1);
+      // this.pagination.selectPage(1);
       //let chng = changes[propName];
       //let cur = JSON.stringify(chng.currentValue);
       //let prev = JSON.stringify(chng.previousValue);

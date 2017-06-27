@@ -1,18 +1,20 @@
-
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
       <tr class="black-muted-bg">
         <th class="active" *ngFor="let header of gridOptions.columns">
-          <div *ngIf="header.visible!=false">{{header.name}}
-            <i (click)="sortingEvent(header)" [ngClass]="getHeaderClass(header)"></i>
+          <div *ngIf="header.visible!=false">
+            <div *ngIf="header.displayText then displayText else nameText"></div>
           </div>
-          
+          <ng-template #displayText>{{header.displayText}}
+            <i (click)="sortingEvent(header)" [ngClass]="getHeaderClass(header)"></i></ng-template>
+          <ng-template #nameText>{{header.name}}
+            <i (click)="sortingEvent(header)" [ngClass]="getHeaderClass(header)"></i></ng-template>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr class="no-top-border" *ngFor="let item of gridOptions.dataSource">
+      <tr [@fadeIn]="''" class="no-top-border" *ngFor="let item of gridOptions.dataSource">
         <td *ngFor="let header of gridOptions.columns">
           <div *ngIf="header.visible!=false"> {{item[header.name]}}
           </div>
@@ -23,5 +25,5 @@
 </div>
 <div class="at-grid-pagging">
   <!--<at-grid-pagination [allItems]="gridOptions.dataSource" (onPageChanged)="onPageChanged($event)"></at-grid-pagination>-->
-<at-grid-pagination [offset]="gridOptions.pageOffset" [limit]="gridOptions.pageLimit" [size]="gridOptions.pageCount" (pageChange)="onPageChange($event)"></at-grid-pagination>
+  <at-grid-pagination [offset]="gridOptions.pageOffset" [limit]="gridOptions.pageLimit" [size]="gridOptions.pageCount" (pageChange)="onPageChange($event)"></at-grid-pagination>
 </div>
