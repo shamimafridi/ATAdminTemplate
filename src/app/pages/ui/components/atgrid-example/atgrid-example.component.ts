@@ -1,5 +1,5 @@
 import { UserService } from './UserService';
-import { UserListResponse } from './modal';
+import { IUserListResponse } from './modal';
 import { AtGridOptions, AtGridColumn } from './../ATGrid/at-grid/at-grid-options';
 import { Component, OnInit } from '@angular/core';
 
@@ -25,13 +25,13 @@ export class ATGridExampleComponent {
       //new AtGridColumn('Cother'),
       //new AtGridColumn('Qualification')
     ];
-    this.getUserList(0,this.atGridOptions.pageLimit);
+    this.getUserList(0, this.atGridOptions.pageLimit);
 
     this.atGridOptions.columns = this.atGridColumns;
 
   }
   onPageChange(pageNo) {
-    this.getUserList( pageNo,this.atGridOptions.pageLimit);
+    this.getUserList(pageNo, this.atGridOptions.pageLimit);
   }
   public getUserList(pageNo: number, limit: number): void {
     this.userService.getUserList(limit, pageNo)
@@ -41,11 +41,12 @@ export class ATGridExampleComponent {
           this.atGridOptions.dataSource = data.page_count.docs;
           this.atGridOptions.pageCount = data.page_count.total;
           this.atGridOptions.pageOffset = data.page_count.offset;
-         // this.atGridOptions.pageCount = 10;
+
+          // this.atGridOptions.pageCount = 10;
           //alert('suc');
 
         } else {
-          
+
         }
       });
 

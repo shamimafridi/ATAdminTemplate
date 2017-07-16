@@ -1,10 +1,8 @@
 import { Config } from './../../../../app.config';
-import { UserListResponse } from './modal';
+import { IUserListResponse } from './modal';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-
-
 
 @Injectable()
 export class UserService {
@@ -17,7 +15,7 @@ export class UserService {
     public constructor(private http: Http) {
 
     }
-    public getUserList(limit: number, pageNo: number): Observable<any> {
+    public getUserList(limit: number, pageNo: number): Observable<IUserListResponse> {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         headers.append('x-access-token', localStorage.getItem('token'));
         // ... Set content type to JSON

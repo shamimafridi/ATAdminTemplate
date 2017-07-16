@@ -1,5 +1,7 @@
-export class UserListResponse {
-    page_count: { docs: any[] };
-    email: string;
-    //token: string;
+export interface IUserListResponse {
+    page_count: 
+            { docs: any[],
+            total:number,
+            offset:number 
+            };
 }

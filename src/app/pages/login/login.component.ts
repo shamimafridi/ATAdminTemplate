@@ -41,7 +41,7 @@ export class Login {
             alert('login succeed');
             this.email.setErrors({ 'invalidUserOrPassword': false });
 
-            localStorage.setItem('token', data.token);
+          //  localStorage.setItem('token', data.token);
           } else {
             this.email.setErrors({ 'invalidUserOrPassword': true });
             // alert('auth failed')
