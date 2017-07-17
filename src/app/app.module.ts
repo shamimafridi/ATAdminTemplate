@@ -1,3 +1,4 @@
+import { JwtHelper } from 'angular2-jwt';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -52,7 +53,7 @@ export type StoreType = {
     routing
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
+    APP_PROVIDERS,JwtHelper
   ]
 })
 

@@ -1,5 +1,6 @@
+import { AuthGuard } from './../../theme/security/AuthGuard';
 import { AtGridComponent } from './components/ATGrid/at-grid/at-grid.component';
-import { Routes, RouterModule }  from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { Ui } from './ui.component';
 import { Buttons } from './components/buttons/buttons.component';
@@ -14,7 +15,7 @@ import { ATGridExampleComponent } from './components/atgrid-example/atgrid-examp
 const routes: Routes = [
   {
     path: '',
-    component: Ui,
+    component: Ui, canActivate: [AuthGuard],
     children: [
       { path: 'buttons', component: Buttons },
       { path: 'grid', component: Grid },

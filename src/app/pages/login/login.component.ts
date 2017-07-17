@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
@@ -13,7 +14,7 @@ export class Login {
   public password: AbstractControl;
   public submitted: boolean = false;
 
-  constructor(fb: FormBuilder, private loginService: LoginService) {
+  constructor(private router:Router, fb: FormBuilder, private loginService: LoginService) {
     this.form = fb.group({
       email: '',
       password: ''
@@ -38,6 +39,7 @@ export class Login {
         .subscribe((data) => {
           console.log(data)
           if (data.success) {
+            this.router.navigate(['/pages/ui/atgrid']);
             alert('login succeed');
             this.email.setErrors({ 'invalidUserOrPassword': false });
 

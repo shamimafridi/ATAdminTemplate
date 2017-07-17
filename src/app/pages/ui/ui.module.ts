@@ -1,12 +1,13 @@
+import { AuthGuard } from './../../theme/security/AuthGuard';
 import { UserService } from './components/atgrid-example/UserService';
-import { NgModule }      from '@angular/core';
-import { CommonModule }  from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { routing }       from './ui.routing';
+import { routing } from './ui.routing';
 import { Ui } from './ui.component';
 import { Buttons } from './components/buttons/buttons.component';
 import { Grid } from './components/grid/grid.component';
@@ -58,13 +59,13 @@ import { AtModule } from './components/ATGrid/at-grid/at-module';
     GroupButtons,
     DefaultModal,
     ATGridExampleComponent,
-    
+
   ],
   entryComponents: [
     DefaultModal
   ],
   providers: [
-    IconsService,UserService
+    IconsService, UserService, AuthGuard
   ]
 })
 export class UiModule {
